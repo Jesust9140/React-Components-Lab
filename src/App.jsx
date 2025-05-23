@@ -1,25 +1,7 @@
-  <>
-    <h1>Local Weather</h1>
-    <section>
-      // Weather data here
-    </section>
-  </>
-
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import WeatherForecast from '/components/WeatherForecast/WeatherForecast';
+import WeatherForecast from '../components/WeatherForecast/WeatherForecast'
 
-function App() {
-  const [count, setCount] = useState(0)}
-
-//   return (
-//     <>
-//       <h1>Hello world!</h1>
-//     </>
-//   )
-// }
 const weatherForecasts = [
   {
     day: 'Mon',
@@ -57,5 +39,18 @@ const weatherForecasts = [
     time: 'Night',
   },
 ];
+
+function App() {
+  return (
+    <>
+      <h1>Local Weather</h1>
+      <section>
+        {weatherForecasts.map((forecast, idx) => (
+          <WeatherForecast key={idx} {...forecast} />
+        ))}
+      </section>
+    </>
+  )
+}
 
 export default App
